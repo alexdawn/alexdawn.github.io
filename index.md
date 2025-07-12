@@ -1,5 +1,1 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Welcome to the refactory, here I will be blogging snippets of php and guides on how to make working with legacy code that little bit nicer. Before I was php developer I worked with python so a fan of the functional style.
