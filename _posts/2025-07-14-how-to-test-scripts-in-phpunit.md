@@ -10,7 +10,7 @@ public function runScript(...$args): string
      $somethingElseUsedInScript = $args[0]; // or override them for the test
      ob_start();
      try {
-         require($path);
+         require('MyScriptToTest.php');
      } finally {
          $response = ob_get_clean();
      }
