@@ -1,22 +1,17 @@
-name: Jekyll site CI
+name: Republish
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
   schedule:
-    - cron: "5 2 * * *"
+    - cron: '5 2 * * *'
 
 jobs:
-  build:
-
+  refresh:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - name: Build the site in the jekyll/builder container
+    - name: trigger pages rebuild
       run: |
-        docker run \
-        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
-        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build"
+          curl --fail --request POST \
+            --url  https://api.github.com/repos/alexdawn/alexdawn.github.io/pages/builds \
+            --header "Authorization: Bearer $USER_TOKEN"
+      env:
+        USER_TOKEN: $
