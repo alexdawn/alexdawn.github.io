@@ -2,7 +2,7 @@ name: Republish
 
 on:
   schedule:
-    - cron: '5 2 * * *'
+    - cron: '* * * * *'
 
 jobs:
   refresh:
@@ -14,4 +14,4 @@ jobs:
             --url  https://api.github.com/repos/alexdawn/alexdawn.github.io/pages/builds \
             --header "Authorization: Bearer $USER_TOKEN"
       env:
-        USER_TOKEN: $
+        USER_TOKEN: ${{ secrets.USER_TOKEN }}
