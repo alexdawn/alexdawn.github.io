@@ -2,7 +2,7 @@ name: Republish
 
 on:
   schedule:
-    - cron: '* * * * *'
+    - cron: '5 2 * * *'
 
 jobs:
   refresh:
