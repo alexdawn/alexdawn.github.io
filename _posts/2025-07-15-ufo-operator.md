@@ -1,3 +1,8 @@
+---
+tags: [operator, php8]
+categories: [php]
+---
+
 ## UFO operator
 
 This is a comparison operator that return -1 if the second operand is less than the first, zero if they are equal, or 1 if it’s greater than. A slightly niche function, though one that reminds me of an Opcode from a zachtronics puzzle game.

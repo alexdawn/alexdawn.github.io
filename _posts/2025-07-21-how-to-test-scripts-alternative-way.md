@@ -1,3 +1,8 @@
+---
+tags: [phpunit, refactoring, PSR1]
+categories: [php]
+---
+
 ## How to test scripts in phpunit (alternative way)
 
 This is presented after the previous way as it requires a bit more of a heavy refactor that the way shown in part 4. This was is wrapping the script into a class and adding a python style `if __name__ === ‘__main__’:` at the bottom. This is a very common convention in python.

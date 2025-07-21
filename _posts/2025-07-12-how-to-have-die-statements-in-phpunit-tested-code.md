@@ -1,3 +1,8 @@
+---
+tags: [phpunit, refactoring]
+categories: [php]
+---
+
 ## How to have die statements in phpunit tested code
 
 This is the first of a 5 part guide of how to make light touch changes to improve your experience with working with legacy php.

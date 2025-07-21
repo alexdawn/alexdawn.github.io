@@ -1,3 +1,8 @@
+---
+tags: [refactoring, deprecation, doctrine-orm]
+categories: [php]
+---
+
 ## How to deprecate properties that should be a relationship
 
 On a legacy project I had a problem, the entire database schema was converted

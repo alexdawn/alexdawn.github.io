@@ -1,3 +1,8 @@
+---
+tags: [function, static, autoloader]
+categories: [php]
+---
+
 ## The problem with functions in php
 
 I like functions because I like functional programming. 

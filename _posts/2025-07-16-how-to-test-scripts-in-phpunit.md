@@ -1,3 +1,8 @@
+---
+tags: [phpunit, refactoring, PSR1]
+categories: [php]
+---
+
 ## How to test scripts in phpunit
 
 Phpunit is well suited to tested class based code, but how do we get it to test legacy code? Especially if that script does all sorts of strange and nasty things, [breaking PSR1 by mixing declaration and actions](https://www.php-fig.org/psr/psr-1/), like printing to stdout, just dying on you (see part 1), and using the dreaded globals.

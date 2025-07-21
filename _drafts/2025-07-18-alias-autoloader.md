@@ -1,3 +1,8 @@
+---
+tags: [autoloader, alias, refactoring, joomla]
+categories: [php]
+---
+
 ## How to start namespacing legacy code with Namespace alias
 
 Now this was a tricky problem and initial googling didn’t show up anything, how do you register a class with multiple namespaces, the exact same class? First of all why would you want to?

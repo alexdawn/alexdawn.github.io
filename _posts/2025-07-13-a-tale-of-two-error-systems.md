@@ -1,3 +1,8 @@
+---
+tags: [exception, error, SimpleXml]
+categories: [php]
+---
+
 ## A tale of two error systems
 
 Legacy php offers a lot of surprises, one of them is there there are two different error systems the legacy: [`trigger_error()`](https://www.php.net/manual/en/function.trigger-error.php), which has these categories of error:  `E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE, E_USER_DEPRECATED` and is handled by registering handlers with [`set_error_handler()`](https://www.php.net/manual/en/function.set-error-handler.php). And the modern php try catch Exception/Error system. Yes don’t confuse an "error" with a `Error` (which is a `Throwable`).
