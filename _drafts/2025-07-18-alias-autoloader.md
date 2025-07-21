@@ -38,7 +38,7 @@ class AliasAutoloader
         // if aliased need find the normal way to load it
         // call the next functions ourselves instead of returning false as we have additional work to do
         foreach (spl_autoload_functions() as $function) {
-            // don't recursively call itself!
+            // don't recursively call itself, otherwise directly call the autoload callback
             if ($function !== [static, 'load'] && $function($fullyQualifiedClassname)) {
                 break;
             }
