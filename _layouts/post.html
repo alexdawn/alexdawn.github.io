@@ -28,3 +28,21 @@ layout: default
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+{{ if site.comments.giscus.enabled }}
+<script src="https://giscus.app/client.js"
+        data-repo="alexdawn/alexdawn.github.io"
+        data-repo-id="R_kgDOPLUyDA"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPLUyDM4CtP1l"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<noscript>Please enable JavaScript to view the comments.</noscript>
+{{ end }}
