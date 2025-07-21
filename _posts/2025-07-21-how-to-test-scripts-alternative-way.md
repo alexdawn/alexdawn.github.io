@@ -19,6 +19,8 @@ class MyOldScript
     public function run()
     {
         ...
+        $this->someFunctionIWantToTest();
+        ..
     }
 
     public function someFunctionIWantToTest()
