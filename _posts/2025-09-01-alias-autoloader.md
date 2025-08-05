@@ -3,7 +3,7 @@ tags: [autoloader, alias, refactoring, joomla]
 categories: [php]
 ---
 
-## How to start namespacing legacy code with Namespace alias
+## How to start namespacing legacy code with namespace aliases
 
 Now this was a tricky problem and initial googling didn’t show up anything, how do you register a class with multiple namespaces, the exact same class? First of all why would you want to?
 
@@ -16,7 +16,7 @@ Now our problem isn’t yet over, as it comes `class_alias()` is a bit too eager
 * via the new PSR4 fully namespaced names
 and the alias registration has to work either way around.
 
-To ensure your customer autoloader has a chance to register an alias (it won’t be called if the PSR4 autoloader returns true) it has to be prepended to the autoload list, then return false for no match so php will continue onwards towards the PSR4 autoloader. However it also cannot let the legacy custom autoloader fire and load the class incorrectly without registering the alias, so this method cannot just return false and let php itself work the autoload list, nope it has to managed this itself as after autoloading the class only then can the alias call be made
+To ensure your customer autoloader has a chance to register an alias (it won’t be called if the PSR4 autoloader returns true) it has to be prepended to the autoload list, but also then ensure it runs the correct PSR4 autoloader. However it also cannot let the legacy custom autoloader fire. Then I also found that registering the alias cannot be done until the class is loaded otherwise it will recursively call the autoloader, so this method cannot just return false and let php itself work the autoload list, nope it has to managed this itself, thankfully the full list of registered call backs are available via the `spl_autoload_functions()` function.
 
 ```php
 class AliasAutoloader
@@ -79,4 +79,4 @@ use MyLegacyClass; // or even no use statement at all
 ...
 
 ```
-and it doesn't matter if file1 or file2 is loaded first. This was a huge improvement as the old system has a singleton class called `Module` that was called to load in a file and make other files in that "module" autoloadable. This worked in production but was somewhat fiddly in unit tests. With the alias autoloader it was as simple to test legacy classes by just a `use` statement and using the PSR4 autoloader that was always available no need for `Module::load()`
+and it doesn't matter if file1 or file2 is loaded first. This was a huge improvement as the old system has a singleton class called `Module` that was called to load in a file and make other files in that "module" autoloadable. This worked in production but was somewhat fiddly in unit tests. With the alias autoloader it was as simple to test legacy classes by just a `use` statement and using the PSR4 autoloader that was always available no need for `Module::load()` that would load a lot more than just the class it needs.
